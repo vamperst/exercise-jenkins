@@ -1,0 +1,4 @@
+cfn-create-or-update --region us-east-1 --stack-name jenkins-master --wait --template-url https://teste-cfn-2018.s3.amazonaws.com/jenkins/ec2-master.yaml --capabilities CAPABILITY_NAMED_IAM
+cfn-create-or-update --region us-east-1 --stack-name jenkins-agent-1 --wait --template-url https://teste-cfn-2018.s3.amazonaws.com/jenkins/ec2-agent.yaml --parameters ParameterKey=IpMaster,ParameterValue=\"34.207.83.160\" --capabilities CAPABILITY_NAMED_IAM
+
+aws s3 cp s3://teste-cfn-2018/jenkins/script-jenkins-master.sh .
