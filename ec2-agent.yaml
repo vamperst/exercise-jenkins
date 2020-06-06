@@ -80,7 +80,7 @@ Resources:
            exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
             sudo apt update -y
             sudo apt install awscli -y
-            aws s3 cp s3://teste-cfn-2018/jenkins/script-jenkins-agent.sh .
+            aws s3 cp s3://base-config-<SEU RM>/cfn/exercise-cicd/script-jenkins-agent.sh .
             awk '{gsub(/USERNAME/,"admin")}1' script-jenkins-agent.sh > temp.txt && mv temp.txt script-jenkins-agent.sh
             awk '{gsub(/PASSWORD/,"12345678")}1' script-jenkins-agent.sh > temp.txt && mv temp.txt script-jenkins-agent.sh
             awk '{gsub(/ip_master/,"${IpMaster}")}1' script-jenkins-agent.sh > temp.txt && mv temp.txt script-jenkins-agent.sh
